@@ -41,10 +41,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
 var read_1 = __importDefault(require("./read"));
-var opencv4nodejs_1 = __importDefault(require("opencv4nodejs"));
 var imagePath = path_1.default.resolve('tests/fixtures/Lenna.png');
+var histogram_1 = __importDefault(require("./feature-extraction/histogram"));
+var dominant_color_1 = __importDefault(require("./feature-extraction/dominant-color"));
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var img, getHistAxis, r, g, b, a;
+    var img, histograms;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, read_1.default(imagePath)];
@@ -53,16 +54,9 @@ var imagePath = path_1.default.resolve('tests/fixtures/Lenna.png');
                 if (!img) {
                     return [2 /*return*/, console.log('image was empty')];
                 }
-                getHistAxis = function (channel) {
-                    var ranges = [0, 256];
-                    var bins = 256;
-                    return { channel: channel, bins: bins, ranges: ranges };
-                };
-                r = new opencv4nodejs_1.default.HistAxes(getHistAxis(0));
-                g = new opencv4nodejs_1.default.HistAxes(getHistAxis(1));
-                b = new opencv4nodejs_1.default.HistAxes(getHistAxis(2));
-                a = opencv4nodejs_1.default.calcHist(img, [r, g, b]);
-                console.log(a);
+                histograms = histogram_1.default(img);
+                console.log(histograms);
+                dominant_color_1.default(img);
                 return [2 /*return*/];
         }
     });

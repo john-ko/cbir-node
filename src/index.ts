@@ -1,13 +1,9 @@
 import path from 'path';
 import readFile from './read'
-import cv from 'opencv4nodejs'
-const imagePath = path.resolve('tests/fixtures/Lenna.png');
-
-type histogramAxis = {
-  channel: number,
-  bins: number,
-  ranges: [number, number]
-};
+import cv, { Mat } from 'opencv4nodejs'
+const imagePath = path.resolve('tests/fixtures/Lenna.png')
+import histogram from './feature-extraction/histogram'
+import dominantColor from './feature-extraction/dominant-color'
 
 (async () => {
   const img = await readFile(imagePath)
@@ -16,18 +12,8 @@ type histogramAxis = {
     return console.log('image was empty')
   }
 
-  const getHistAxis = (channel: number): histogramAxis => {
-    return {
-      channel,
-      bins: 256,
-      ranges: [0, 256]
-    }
-  }
-
-  const histogramAxis = new cv.HistAxes(getHistAxis(0))
-
-  const a = cv.calcHist(img, [histogramAxis])
-
-
-  console.log(a)
+  // console.log(img.getDataAsArray())
+  const histograms: [Mat, Mat, Mat] = histogram(img)
+  console.log(histograms)
+  dominantColor(img)
 })()
