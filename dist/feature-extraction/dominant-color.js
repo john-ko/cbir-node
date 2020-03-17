@@ -1,16 +1,21 @@
 "use strict";
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var opencv4nodejs_1 = __importStar(require("opencv4nodejs"));
+var opencv4nodejs_1 = __importDefault(require("opencv4nodejs"));
 function dominantColor(image) {
-    var p = new opencv4nodejs_1.Point2(1, 2);
-    var termCriteria = new opencv4nodejs_1.default.TermCriteria(1, 2, 3);
-    console.log(opencv4nodejs_1.default.kmeans([p], 1, termCriteria, 10, 1));
+    var resized = image.resize(1, 512 * 512);
+    var data = resized.getDataAsArray();
+    var termCriteria = new opencv4nodejs_1.default.TermCriteria(1, 10, 3);
+    // @ts-ignore
+    var points = data[0].map(function (_a) {
+        var b = _a[0], g = _a[1], r = _a[2];
+        return new opencv4nodejs_1.default.Point3(r, g, b);
+    });
+    // @ts-ignore
+    var results = opencv4nodejs_1.default.kmeans(points, 8, termCriteria, 1, 1);
+    var centers = results.centers;
+    return centers;
 }
 exports.default = dominantColor;

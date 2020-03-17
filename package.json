@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "opencv4nodejs": "^5.5.0"
+    "opencv4nodejs": "5.5.0"
   },
   "devDependencies": {
     "typescript": "3.8.3"

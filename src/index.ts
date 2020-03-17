@@ -12,8 +12,5 @@ import dominantColor from './feature-extraction/dominant-color'
     return console.log('image was empty')
   }
 
-  // console.log(img.getDataAsArray())
-  const histograms: [Mat, Mat, Mat] = histogram(img)
-  console.log(histograms)
   dominantColor(img)
 })()

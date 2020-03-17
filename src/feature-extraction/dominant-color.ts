@@ -1,8 +1,19 @@
-import cv, { Mat, termCriteria, Point2 } from 'opencv4nodejs'
+import cv, { Mat, Point3, TermCriteria } from 'opencv4nodejs'
 
-export default function dominantColor (image: Mat) {
-  const p = new Point2(1, 2)
-  const termCriteria = new cv.TermCriteria(1,2,3)
-  console.log(cv.kmeans([p], 1, termCriteria, 10, 1))
+export default function dominantColor (image: Mat): [number, number, number][] {
+  const resized = image.resize(1, 512 * 512)
+  const data = resized.getDataAsArray()
+  const termCriteria: TermCriteria = new cv.TermCriteria(1,10,3)
+
+  // @ts-ignore
+  const points: Point3[] = data[0].map(([b, g, r]) => {
+    return new cv.Point3(r, g, b)
+  })
+
+  // @ts-ignore
+  const results = cv.kmeans(points, 8, termCriteria, 1, 1)
+  const centers = results.centers
+
+  return centers
 }
 

@@ -42,10 +42,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
 var read_1 = __importDefault(require("./read"));
 var imagePath = path_1.default.resolve('tests/fixtures/Lenna.png');
-var histogram_1 = __importDefault(require("./feature-extraction/histogram"));
 var dominant_color_1 = __importDefault(require("./feature-extraction/dominant-color"));
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var img, histograms;
+    var img;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, read_1.default(imagePath)];
@@ -54,8 +53,6 @@ var dominant_color_1 = __importDefault(require("./feature-extraction/dominant-co
                 if (!img) {
                     return [2 /*return*/, console.log('image was empty')];
                 }
-                histograms = histogram_1.default(img);
-                console.log(histograms);
                 dominant_color_1.default(img);
                 return [2 /*return*/];
         }
