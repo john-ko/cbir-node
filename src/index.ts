@@ -2,15 +2,18 @@ import path from 'path';
 import readFile from './read'
 import cv, { Mat } from 'opencv4nodejs'
 const imagePath = path.resolve('tests/fixtures/Lenna.png')
-import histogram from './feature-extraction/histogram'
-import dominantColor from './feature-extraction/dominant-color'
+import showImage from './dev/show-image'
 
 (async () => {
-  const img = await readFile(imagePath)
+  const image = await readFile(imagePath)
 
-  if (!img) {
+  if (!image) {
     return console.log('image was empty')
   }
 
-  dominantColor(img)
+  showImage(image)
+
+  const t = image.resize(25, 25)
+
+  showImage(t)
 })()

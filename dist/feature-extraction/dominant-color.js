@@ -4,6 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var opencv4nodejs_1 = __importDefault(require("opencv4nodejs"));
+/**
+ * returns an array of the 8 most dominant colors
+ *
+ * @param {Mat} image
+ * @returns array of numbers: [number, number, number][]
+ */
 function dominantColor(image) {
     var resized = image.resize(1, 512 * 512);
     var data = resized.getDataAsArray();

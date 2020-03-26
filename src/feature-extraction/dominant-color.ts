@@ -1,5 +1,11 @@
 import cv, { Mat, Point3, TermCriteria } from 'opencv4nodejs'
 
+/**
+ * returns an array of the 8 most dominant colors
+ *
+ * @param {Mat} image
+ * @returns array of numbers: [number, number, number][]
+ */
 export default function dominantColor (image: Mat): [number, number, number][] {
   const resized = image.resize(1, 512 * 512)
   const data = resized.getDataAsArray()
