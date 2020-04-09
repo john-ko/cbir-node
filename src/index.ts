@@ -1,6 +1,5 @@
 import path from 'path';
 import readFile from './read'
-import cv, { Mat } from 'opencv4nodejs'
 const imagePath = path.resolve('tests/fixtures/Lenna.png')
 import showImage from './dev/show-image'
 
