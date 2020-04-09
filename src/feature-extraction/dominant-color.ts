@@ -20,6 +20,7 @@ export default function dominantColor (image: Mat): [number, number, number][] {
   const results = cv.kmeans(points, 8, termCriteria, 1, 1)
   const centers = results.centers
 
+  // @ts-ignore
   return centers
 }
 

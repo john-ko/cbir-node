@@ -23,24 +23,5 @@ function histogram(image) {
         greenHist,
         blueHist,
     ];
-    // const blue = new cv.Vec3(255, 0, 0)
-    // const green = new cv.Vec3(0, 255, 0)
-    // const red = new cv.Vec3(0, 0, 255)
-    // const plot = new cv.Mat(300, 600, cv.CV_8UC3, [255, 255, 255])
-    // cv.plot1DHist(bHist, plot, blue, 1, 2)
-    // cv.plot1DHist(gHist, plot, green, 2, 2)
-    // cv.plot1DHist(rHist, plot, red, 3, 2)
-    // cv.imshow('rgb image', image)
-    // cv.imshow('rgb histogram', plot)
-    // cv.waitKey()
-    // const vect3 = new cv.Vec3(0, 0, 0)
-    // const grayimage = image.bgrToGray()
-    // const grHist = new cv.HistAxes(getHistAxis(0))
-    // const grayHist = cv.calcHist(grayimage, [grHist])
-    // const grayHistPlot = new cv.Mat(300, 600, cv.CV_8UC3, [255, 255, 255])
-    // cv.plot1DHist(grayHist, grayHistPlot, vect3)
-    // cv.imshow('grayscale image', grayimage)
-    // cv.imshow('grayscale histogram', grayHistPlot)
-    // cv.waitKey()
 }
 exports.default = histogram;

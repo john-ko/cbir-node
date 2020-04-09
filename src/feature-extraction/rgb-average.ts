@@ -1,8 +1,8 @@
 import { Mat } from 'opencv4nodejs'
 
 export default function RGBAverage (image: Mat): [number, number, number] {
-  const resized = image.resize(1, 512 * 512)
-  const imageBuffer = resized.getData()
+  const resized: Mat = image.resize(1, 512 * 512)
+  const imageBuffer: Buffer = resized.getData()
   const ui8 = new Uint8Array(imageBuffer);
 
   const iRed = 2

@@ -42,9 +42,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
 var read_1 = __importDefault(require("./read"));
 var imagePath = path_1.default.resolve('tests/fixtures/Lenna.png');
-var show_image_1 = __importDefault(require("./dev/show-image"));
+var rgb_average_1 = __importDefault(require("./feature-extraction/rgb-average"));
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var image, t;
+    var image;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, read_1.default(imagePath)];
@@ -53,9 +53,7 @@ var show_image_1 = __importDefault(require("./dev/show-image"));
                 if (!image) {
                     return [2 /*return*/, console.log('image was empty')];
                 }
-                show_image_1.default(image);
-                t = image.resize(25, 25);
-                show_image_1.default(t);
+                console.log(rgb_average_1.default(image));
                 return [2 /*return*/];
         }
     });

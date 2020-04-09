@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function featureExtraction(custom) {
-    if (custom === void 0) { custom = []; }
+function featureExtraction(image) {
 }
 exports.default = featureExtraction;

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var avg = function (arr) { return arr.reduce(function (a, b) { return a + b; }, 0) / arr.length; };
 function RGBAverage(image) {
     var resized = image.resize(1, 512 * 512);
     var imageBuffer = resized.getData();

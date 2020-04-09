@@ -2,6 +2,7 @@ import path from 'path';
 import readFile from './read'
 const imagePath = path.resolve('tests/fixtures/Lenna.png')
 import showImage from './dev/show-image'
+import RGBAverage from './feature-extraction/rgb-average'
 
 (async () => {
   const image = await readFile(imagePath)
@@ -10,9 +11,11 @@ import showImage from './dev/show-image'
     return console.log('image was empty')
   }
 
-  showImage(image)
+  console.log(RGBAverage(image))
 
-  const t = image.resize(25, 25)
+  // showImage(image)
 
-  showImage(t)
+  // const t = image.resize(25, 25)
+
+  // showImage(t)
 })()

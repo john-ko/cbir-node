@@ -22,6 +22,7 @@ function dominantColor(image) {
     // @ts-ignore
     var results = opencv4nodejs_1.default.kmeans(points, 8, termCriteria, 1, 1);
     var centers = results.centers;
+    // @ts-ignore
     return centers;
 }
 exports.default = dominantColor;
