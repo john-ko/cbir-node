@@ -41,8 +41,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
 var read_1 = __importDefault(require("./read"));
-var imagePath = path_1.default.resolve('tests/fixtures/Lenna.png');
-var rgb_average_1 = __importDefault(require("./feature-extraction/rgb-average"));
+// const imagePath = path.resolve('tests/fixtures/Lenna.png')
+var imagePath = path_1.default.resolve('tests/fixtures/baby.jpg');
+var canny_edge_detection_1 = __importDefault(require("./feature-extraction/shape/canny-edge-detection"));
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var image;
     return __generator(this, function (_a) {
@@ -53,7 +54,7 @@ var rgb_average_1 = __importDefault(require("./feature-extraction/rgb-average"))
                 if (!image) {
                     return [2 /*return*/, console.log('image was empty')];
                 }
-                console.log(rgb_average_1.default(image));
+                canny_edge_detection_1.default(image);
                 return [2 /*return*/];
         }
     });

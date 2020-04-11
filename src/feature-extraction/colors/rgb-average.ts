@@ -24,8 +24,8 @@ export default function RGBAverage (image: Mat): [number, number, number] {
   const avgBlue = totalBlue / ui8.length
 
   return [
-    avgRed,
-    avgGreen,
-    avgBlue
+    Number(avgRed.toFixed(4)),
+    Number(avgGreen.toFixed(4)),
+    Number(avgBlue.toFixed(4))
   ]
 }

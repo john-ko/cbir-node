@@ -1,6 +1,6 @@
 import cv from 'opencv4nodejs'
 import { Mat } from 'opencv4nodejs'
-import HistogramAxis from '../types/HistogramAxis'
+import HistogramAxis from '../../types/HistogramAxis'
 
 function getHistAxis (channel: number): HistogramAxis {
   return {
